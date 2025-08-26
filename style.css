@@ -1,0 +1,259 @@
+/* Body y tipografía */
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: justify;
+    margin: 0;
+    background: linear-gradient(120deg, #fff8f0, #f0f8ff);
+    transition: background 0.6s ease;
+}
+
+/* Header y nav */
+header {
+    background: #850808;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    transition: all 0.6s ease;
+}
+
+.logo {
+    max-width: 120px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: #850808;
+    padding: 5px 0;
+    scroll-behavior: smooth;    
+    scroll-snap-type: x mandatory;
+    transition: all 0.6s ease;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    margin: 0 5px;
+    scroll-snap-align: center;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+nav button:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: #D33C2E;
+}
+
+nav::-webkit-scrollbar {
+    height: 6px;
+}
+nav::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+/* Secciones con fade */
+section {
+    display: none;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Categoría */
+.categoria {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Estilo general de badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    background: #f0f0f0;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* sombra ligera */
+    transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Íconos dentro de badges */
+.badge i {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+/* Hover según aplicación + zoom + levitación */
+.badge[aria-label="Enviar correo"]:hover {
+    background: #D44638;
+    color: #fff;
+    transform: translateY(-4px) scale(1.1); /* levitación */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* sombra más profunda */
+}
+
+.badge[aria-label="Instagram"]:hover {
+    background: #C13584;
+    color: #fff;
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.badge[aria-label="WhatsApp"]:hover {
+    background: #25D366;
+    color: #fff;
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Zoom solo en el ícono también */
+.badge:hover i {
+    transform: scale(1.3);
+}
+
+/* Item */
+.item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    margin: 10px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 150px;
+}
+.item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.item img {
+    flex-shrink: 0;
+    width: 150px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.info {
+    padding: 10px;
+    flex: 1;
+    text-align: justify;
+}
+
+.price {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.carousel-item.active {
+    opacity: 1;
+    position: relative;
+    transform: scale(1.02);
+}
+.carousel-item img, 
+.carousel-item video {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    margin: 10px auto;
+    display: block;
+    border-radius: 12px; /* bordes redondeados */
+    transition: transform 0.3s; /* opcional: efecto suave al pasar el mouse */
+}
+
+.carousel-item img:hover,
+.carousel-item video:hover {
+    transform: scale(1.02); /* efecto sutil de zoom al hover */
+}
+
+/* Footer */
+footer {
+    background: #850808;
+    color: #fff;
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 0.9rem;
+    transition: background 0.6s ease;
+}
+
+footer p { margin: 5px 0; }
+
+footer .socials {
+    margin-top: 5px;
+}
+
+footer .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background: #fff;
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+    transition: transform 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+footer .socials a:hover {
+    transform: scale(1.1);
+    background: #F5B400;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
